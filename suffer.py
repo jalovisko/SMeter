@@ -55,7 +55,8 @@ class Work(tk.Frame):
         self.output = tk.Label(self, text = "")
         
         # create pie chart canvas
-        self.canvas = tk.Canvas(self, bg = "white", height = 600, width = 600)
+        side = 600
+        self.canvas = tk.Canvas(self, bg = "white", height = side, width = side)
         
         # lay the widgets out on the screen. 
         self.prompt1.pack(side="top", fill="x")
