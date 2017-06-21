@@ -134,8 +134,16 @@ class Work(tk.Frame):
                 self.canvas.create_text((x,y), text = "Survived \n"+str(survivedTotal)+"\n"+str(survivedPersent)+"%")
                 self.canvas.create_text((xrev,yrev), text = "Left to survive \n"+str(leftTotal)+"\n"+str(leftPersent)+"%")
                 
+                tillLunchSeconds = startL - tm
+                tillLunchM, tillLunchS = divmod(tillLunchSeconds, 60)
+                tillLunchH, tillLunchM = divmod(tillLunchM, 60)
+                tillLunchTotal = "%d:%02d:%02d" % (tillLunchH, tillLunchM, tillLunchS)
+                
                 #self.canvas.pack()
-                result = ""
+                if (tillLunchSeconds > 0):
+                    result = "Time till lunch: " + str(tillLunchTotal)
+                else:
+                    result = "Time till lunch: tomorrow"
                 
             else:
                 self.canvas.create_oval((155,155,445,445), fill="green")
